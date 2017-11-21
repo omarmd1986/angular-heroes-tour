@@ -1,0 +1,9 @@
+<div *ngIf="hero">
+    <p>
+        <b>
+            Are you sure you want to delete {{ hero.name }} hero?
+        </b>
+    </p>
+    <button (click)="goBack()">Cancel</button>
+    <button (click)="delete()">Yes, delete.</button>
+</div>

@@ -1,0 +1,31 @@
+<p>
+  data-binding works!
+</p>
+<hr>
+
+{{a}}
+
+<input type="radio" [(ngModel)]="isSpecial" [value]="true">
+<input type="radio" [(ngModel)]="isSpecial" [value]="false">
+
+<img [attr.src]="heroImageUrl" [attr.width]="a"/>
+<div [ngClass]="{'special': isSpecial, 'not_special' : !isSpecial}"></div>
+
+<figure class="figure">
+  <img [src]="heroImageUrl" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+  <figcaption class="figure-caption">A caption for the above image.</figcaption>
+</figure>
+
+<hr>
+<h2>Events</h2>
+<button (click)="onSave()">Save</button>
+<div (myClick)="clicked=$event" clickable>click me</div>
+
+<button [attr.aria-label]="help">help</button>
+
+<button [style.color]="isSpecial ? 'red' : 'green'"> HELLO</button>
+
+<div [class.special]="isSpecial" [class.not_special]="!isSpecial">Special</div>
+
+
+<div [ngClass]="special">Special</div>
