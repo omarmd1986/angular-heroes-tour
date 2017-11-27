@@ -19,6 +19,10 @@ import { InMemoryDataService } from './data/in-memory-data.service';
 import { HeroRemoveComponent } from './components/hero-remove/hero-remove.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
+import { UserInputComponent } from './components/user-input/user-input.component';
+import { FormsInputComponent } from './components/forms-input/forms-input.component';
+import { FormValidattionComponent } from './components/form-validattion/form-validattion.component';
+import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { DataBindingComponent } from './components/data-binding/data-binding.com
     DashboardComponent,
     HeroRemoveComponent,
     HeroSearchComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    UserInputComponent,
+    FormsInputComponent,
+    FormValidattionComponent,
+    ForbiddenNameDirective
   ],
   imports: [
     BrowserModule,

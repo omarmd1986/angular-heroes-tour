@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Hero Form</h1>
+    
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+                minlength="3"
+                maxlength="15"
+                appForbiddenName forbiddenName="bob" colorEnter="green" colorLeave="yellow"
+                required
+                [(ngModel)]="hero.name" name="name"
+                #name="ngModel">
+        <!-- Dirty means: the value changed -->
+        <!-- Touched means: The user interact in some point -->
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+             class="alert alert-danger">
+          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.minlength">Name must be at least 3 characters long</div>
+          <div *ngIf="name.errors.maxlength">Name must least thant 15 characters long</div>
+          <div *ngIf="name.errors.forbiddenName">The hero can not take the BOB name.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo"
+               [(ngModel)]="hero.alterEgo" name="alterEgo" #ego="ngModel">
+          <div *ngIf="ego.invalid && (ego.dirty || ego.touched)"
+               class="alert alert-danger">
+              The Alter ego field is invalid
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power"
+                required
+                [(ngModel)]="hero.power" name="power"
+                #power="ngModel">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+        <div *ngIf="power.invalid && (power.dirty || power.touched)"
+            class="alert alert-danger">
+            <div *ngIf="power.errors.required">The super hero power is required</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="heroForm.reset()">New Hero</button>
+    </form>
+
+</div>
